@@ -1,0 +1,42 @@
+#data {
+    padding-left: 20px;
+}
+
+.spisok {
+    font-size: 30px;
+}
+.idlist {
+    border: 1px black solid;
+    background-color: cornsilk;
+    margin-right: 10px;
+    min-width: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline-block;
+}
+.namelist {
+    border: 1px black solid;
+    background-color: rgb(194, 189, 189);
+    margin-right: 10px;
+}
+.delete {
+    color: red;
+    text-decoration: wavy;
+}
+#add {
+    border: 3px solid green;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 30px;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+}
+
+#delete {
+    border: 3px solid red;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+}
