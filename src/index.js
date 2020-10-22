@@ -1,12 +1,8 @@
+
 import Axios from "axios";
-import drawData from "./utils/dom";
+import { drawData } from "./utils/dom";
 
-
-const apiUrl = 'http://localhost:3000';
-
-const addBtn = document.getElementById('add'),
-  deleteBtn = document.getElementById('delete'),
-  wrapper = document.getElementById('data');
+const wrapper = document.getElementById('data');
 
 
 const checkAxios = (apiUrl) => Axios.get(apiUrl)
@@ -15,24 +11,19 @@ const checkAxios = (apiUrl) => Axios.get(apiUrl)
   console.log('Something is wrong, because ' + error);
 });
 
-checkAxios(apiUrl);
 
-wrapper.addEventListener('click', (e) => {
-  if (e.target.classList.contains('delete')) {
-    checkAxios(`${apiUrl}/delete?id=${e.target.dataset.userId}`)
-  }
-});
+const syncPromise = async () => {
+  const p1 = checkAxios ('https://rickandmortyapi.com/api/character/1');
+  const p2 = checkAxios ('https://rickandmortyapi.com/api/character/2');
+  const p3 = checkAxios ('https://rickandmortyapi.com/api/character/3');
+  const p4 = checkAxios ('https://rickandmortyapi.com/api/character/4');
+  const p5 = checkAxios ('https://rickandmortyapi.com/api/character/5');
+  const p6 = checkAxios ('https://rickandmortyapi.com/api/character/8');
+  const res = await Promise.all([p1, p2, p3, p4, p5, p6]);
+  
+};
 
-addBtn.addEventListener('click', () => {
-  checkAxios(`${apiUrl}/add`)
-});
-
-deleteBtn.addEventListener('click', () => {
-  checkAxios(`${apiUrl}/delete`)
-});
-
-
-
+syncPromise();
 
 
 

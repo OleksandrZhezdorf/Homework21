@@ -13,26 +13,7 @@ const server = http.createServer((request, response) => {
 
   response.setHeader("Access-Control-Allow-Origin", "*");
 
-  const messages = read("messages");
-  switch (parsedUrl.pathname) {
-    case "/add":
-      write("messages", [
-        ...messages,
-        {
-          id: messages[messages.length - 1].id + 1,
-          name: "No-name",
-        },
-      ]);
-      break;
-    case "/delete":
-      write(
-        "messages",
-        filter(
-          messages,
-          (message) => !eq(message.id, Number(defaultTo(id, last(messages).id)))
-        )
-      );
-  }
+  
 
   response.end(JSON.stringify(read("messages")));
 });
@@ -44,3 +25,5 @@ server.listen(port, hostname, () => {
 const value = true;
 
 const currentValue = value ? value : false;
+
+
